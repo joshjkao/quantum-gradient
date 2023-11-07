@@ -1,5 +1,5 @@
 import numpy as np
-from quantumreg import QuantumRegister
+from quantumreg import QuantumRegister as qr
 
-qr = QuantumRegister(1, [1+1j])
-qr.print()
+reg = qr.zero()
+print(reg)
