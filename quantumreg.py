@@ -31,9 +31,6 @@ class QuantumRegister:
     def __str__(self):
         return np.array2string(self.bits)
     
-    # def __array__(self):
-    #     return self.bits
-    
     
     # Operations
     def tensor(self, b: QuantumRegister) -> QuantumRegister:
@@ -79,9 +76,6 @@ class QuantumGate:
     def __getitem__(self, key):
         return self.mat[key]
     
-    # def __array__(self):
-    #     return self.mat
-    
     def __mul__(self, other):
         if isinstance(other, QuantumGate):
             return QuantumGate(np.kron(self.mat, other.mat))
@@ -93,10 +87,7 @@ class QuantumGate:
             raise Exception("unsupported type")
         
     def __pow__(self, other):
-        # if isinstance(other, int):
-            new = copy.deepcopy(self)
-            for i in range(other-1):
-                new = new*self
-            return new
-        # else:
-        #     raise Exception("unsupported type")
+        new = copy.deepcopy(self)
+        for i in range(other-1):
+            new = new*self
+        return new

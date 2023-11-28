@@ -1,5 +1,3 @@
-import numpy as np
-
 def binaryArray2Int(x):
     y = 0
     for i,j in enumerate(reversed(x)):
